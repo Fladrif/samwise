@@ -1,0 +1,17 @@
+{
+  "name": "samwise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "reinstall": "rm package-lock.json && rm -rf node_modules && npm install",
+    "build": "rm -rf ./lib && tsc -p tsconfig.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^10.1.3",
+    "node-tradfri": "^0.2.3"
+  }
+}
