@@ -1,16 +1,16 @@
-import config from './config';
-import { create } from 'node-tradfri';
+import * as tradfri from './tradfri';
 
 async function main(): Promise<void> {
-  const client = create({
-    coapClientPath: '../libcoap/examples/coap-client',
-    identity: config.identity,
-    preSharedKey: config.preSharedKey,
-    hubIpAddress: config.ipAddress,
-  });
+  await tradfri.printDevices();
 
-  const devices = await client.getDevices();
-  console.log('Devices:', devices);
+  const ids = await tradfri.getLights();
+
+  //const params = {
+  //  brightness: 254
+  //};
+  //await tradfri.setLightState(ids, params);
+  // await tradfri.turnOnLights(ids);
+  await tradfri.turnOffLights(ids);
 }
 
 main().catch(console.error);
